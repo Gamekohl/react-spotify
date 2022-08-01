@@ -2,6 +2,7 @@ import { createStyles } from '@mantine/core';
 import React, { FunctionComponent, ReactNode } from 'react'
 import { Navbar } from '../components/Navbar';
 import { PlayerBar } from '../components/PlayerBar';
+import UserProfile from '../components/UserProfile/UserProfile';
 
 const useStyles = createStyles({
     wrapper: {
@@ -24,6 +25,7 @@ const MainLayout: FunctionComponent<{ children: ReactNode }> = ({ children }) =>
                 {children}
             </div>
             <PlayerBar />
+            <UserProfile />
         </div>
     )
 }
