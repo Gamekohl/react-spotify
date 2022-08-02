@@ -5,9 +5,26 @@ import ControlButton from '../ControlButton/ControlButton';
 import { CSlider } from '../UI';
 
 const Player = () => {
+    const mockDuration = 435;
+    const [value, setValue] = useState(0);
     const [playing, setPlaying] = useState(false);
 
     const togglePlaying = () => setPlaying(!playing);
+
+    const handleOnChange = (value: number) => {
+        setValue((value / 100) * mockDuration);
+    }
+
+    const convertDuration = (duration: number) => {
+        const minutes = Math.floor(duration / 60);
+        const seconds = Math.floor(duration % 60);
+
+        const padTo2Digits = (num: number) => {
+            return num.toString().padStart(2, '0');
+        }
+
+        return `${padTo2Digits(minutes)}:${padTo2Digits(seconds)}`;
+    }
 
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} id="player-controls" className="m-w-[722px] w-2/5 flex flex-col">
@@ -31,9 +48,9 @@ const Player = () => {
                 </div>
             </div>
             <div className="w-full flex gap-2 text-[#a7a7a7] justify-between items-center">
-                <span className="text-[0.6875rem]">0:00</span>
-                <CSlider step={0.1} className="w-full" size={5} label={null} />
-                <span className="text-[0.6875rem]">3:12</span>
+                <span className="text-[0.6875rem]">{convertDuration(value)}</span>
+                <CSlider onChange={handleOnChange} step={0.1} className="w-full" size={5} label={null} />
+                <span className="text-[0.6875rem]">{convertDuration(mockDuration)}</span>
             </div>
         </motion.div>
     )

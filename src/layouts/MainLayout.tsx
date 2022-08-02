@@ -11,7 +11,8 @@ const useStyles = createStyles({
         gridTemplateRows: '1fr auto'
     },
     mainView: {
-        gridArea: 'main-view'
+        gridArea: 'main-view',
+        overflowY: 'auto'
     }
 })
 
@@ -19,13 +20,13 @@ const MainLayout: FunctionComponent<{ children: ReactNode }> = ({ children }) =>
     const { classes, cx } = useStyles();
 
     return (
-        <div className={cx(classes.wrapper, 'grid h-full min-h-full relative w-full grid-rows-1 grid-cols-1')}>
+        <div className={cx(classes.wrapper, 'grid h-full min-h-full relative w-full grid-rows-1')}>
+            <UserProfile />
             <Navbar />
             <div className={classes.mainView}>
                 {children}
             </div>
             <PlayerBar />
-            <UserProfile />
         </div>
     )
 }

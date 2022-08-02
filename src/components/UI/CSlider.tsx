@@ -1,12 +1,9 @@
 import { createStyles, Slider, SliderProps } from '@mantine/core'
 import { FunctionComponent } from 'react'
 
-const useStyles = createStyles({
+const useStyles = createStyles((theme) => ({
     sliderBar: {
-        backgroundColor: '#fff',
-        '&:hover': {
-
-        }
+        backgroundColor: '#fff'
     },
     sliderThumb: {
         backgroundColor: '#fff',
@@ -14,11 +11,11 @@ const useStyles = createStyles({
     sliderRoot: {
         '&:hover': {
             '& .mantine-Slider-bar': {
-                backgroundColor: '#1db954'
+                backgroundColor: theme.colors.spotifyAccent[5]
             }
         }
     }
-});
+}));
 
 const CSlider: FunctionComponent<SliderProps> = (props) => {
     const { classes } = useStyles();
