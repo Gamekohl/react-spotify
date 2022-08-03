@@ -1,5 +1,6 @@
 import { createStyles, ScrollArea } from '@mantine/core';
 import React, { FunctionComponent, ReactNode } from 'react'
+import Header from '../components/Header/Header';
 import { Navbar } from '../components/Navbar';
 import { PlayerBar } from '../components/PlayerBar';
 
@@ -21,10 +22,13 @@ const MainLayout: FunctionComponent<{ children: ReactNode }> = ({ children }) =>
     return (
         <>
             <div className={cx(classes.wrapper, 'grid h-full min-h-full relative w-full grid-rows-1')}>
+                <Header />
                 <Navbar />
                 <ScrollArea>
                     <div className={classes.mainView}>
-                        {children}
+                        <main className='mt-16 inline-block w-full pt-6 px-8'>
+                            {children}
+                        </main>
                     </div>
                 </ScrollArea>
                 <PlayerBar />

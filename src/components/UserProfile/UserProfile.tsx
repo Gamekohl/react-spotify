@@ -1,4 +1,5 @@
 import { createStyles, Menu, Text } from '@mantine/core'
+import { useState } from 'react';
 import { ChevronDown, ExternalLink } from 'tabler-icons-react';
 
 const useStyles = createStyles({
@@ -13,11 +14,14 @@ const useStyles = createStyles({
 })
 
 const UserProfile = () => {
-    const { classes } = useStyles();
+    const [opened, setOpened] = useState(false);
+    const { classes, cx } = useStyles();
 
     return (
         <div className="relative z-10">
             <Menu
+                opened={opened}
+                onChange={setOpened}
                 position="bottom-end"
                 classNames={{
                     dropdown: classes.dropdown,
@@ -28,7 +32,14 @@ const UserProfile = () => {
                 width={224}
             >
                 <Menu.Target>
-                    <div className="text-white bg-black bg-opacity-70 cursor-pointer hover:bg-[#282828] h-8 rounded-3xl flex justify-around items-center gap-2">
+                    <div
+                        className={
+                            cx(
+                                { 'bg-[#282828]': opened },
+                                'text-white bg-black bg-opacity-70 cursor-pointer hover:bg-[#282828] h-8 rounded-3xl flex justify-around items-center gap-2'
+                            )
+                        }
+                    >
                         <div>
                             <img className="w-8 h-8 p-0.5 rounded-full" src="https://avatars.dicebear.com/api/jdenticon/xyz.svg" />
                         </div>
