@@ -1,8 +1,7 @@
-import { createStyles } from '@mantine/core';
+import { createStyles, ScrollArea } from '@mantine/core';
 import React, { FunctionComponent, ReactNode } from 'react'
 import { Navbar } from '../components/Navbar';
 import { PlayerBar } from '../components/PlayerBar';
-import UserProfile from '../components/UserProfile/UserProfile';
 
 const useStyles = createStyles({
     wrapper: {
@@ -12,7 +11,7 @@ const useStyles = createStyles({
     },
     mainView: {
         gridArea: 'main-view',
-        overflowY: 'auto'
+        overflowY: 'hidden'
     }
 })
 
@@ -20,14 +19,17 @@ const MainLayout: FunctionComponent<{ children: ReactNode }> = ({ children }) =>
     const { classes, cx } = useStyles();
 
     return (
-        <div className={cx(classes.wrapper, 'grid h-full min-h-full relative w-full grid-rows-1')}>
-            <UserProfile />
-            <Navbar />
-            <div className={classes.mainView}>
-                {children}
+        <>
+            <div className={cx(classes.wrapper, 'grid h-full min-h-full relative w-full grid-rows-1')}>
+                <Navbar />
+                <ScrollArea>
+                    <div className={classes.mainView}>
+                        {children}
+                    </div>
+                </ScrollArea>
+                <PlayerBar />
             </div>
-            <PlayerBar />
-        </div>
+        </>
     )
 }
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { createElement, useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowsShuffle, PlayerSkipBack, PlayerPlay, PlayerPause, PlayerSkipForward, Repeat } from 'tabler-icons-react';
 import ControlButton from '../ControlButton/ControlButton';
@@ -35,11 +35,11 @@ const Player = () => {
                         <ControlButton icon={<PlayerSkipBack fill="currentColor" size={20} />} />
                     </div>
                     <div className="w-8 h-8 rounded-full text-black bg-white flex justify-center items-center hover:scale-110">
-                        {!playing ? (
-                            <PlayerPlay fill="currentColor" onClick={togglePlaying} size={20} />
-                        ) : (
-                            <PlayerPause fill="currentColor" onClick={togglePlaying} size={20} />
-                        )}
+                        {createElement(!playing ? PlayerPlay : PlayerPause, {
+                            fill: "currentColor",
+                            onClick: togglePlaying,
+                            size: 20
+                        })}
                     </div>
                     <div className="flex-1 flex gap-4 items-center justify-start">
                         <ControlButton icon={<PlayerSkipForward fill="currentColor" size={20} />} />

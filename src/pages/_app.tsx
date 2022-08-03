@@ -32,6 +32,7 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         colorScheme: 'dark'
       }}
     >
+      <GlobalFonts />
       <NowPlayingProvider>
         <MainLayout>
           <motion.div key={router.route} initial="initial" animate="animate" variants={appVariants}>

@@ -1,6 +1,5 @@
 import { createStyles, Menu, Text } from '@mantine/core'
-import { useState } from 'react';
-import { ChevronDown, ChevronUp, ExternalLink } from 'tabler-icons-react';
+import { ChevronDown, ExternalLink } from 'tabler-icons-react';
 
 const useStyles = createStyles({
     dropdown: {
@@ -17,7 +16,7 @@ const UserProfile = () => {
     const { classes } = useStyles();
 
     return (
-        <div className="absolute right-8 top-4">
+        <div className="relative z-10">
             <Menu
                 position="bottom-end"
                 classNames={{
