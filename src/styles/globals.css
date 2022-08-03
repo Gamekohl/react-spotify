@@ -37,4 +37,8 @@
 	html, body, #__next {
 		height: 100%;
 	}
+
+	body {
+		background-color: #121212 !important;
+	}
 }

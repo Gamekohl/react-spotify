@@ -3,7 +3,9 @@ import React from 'react'
 
 const Search: NextPage = () => {
     return (
-        <div>Search</div>
+        <>
+            <div>Search</div>
+        </>
     )
 }
 

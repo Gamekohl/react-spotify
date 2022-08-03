@@ -1,12 +1,15 @@
 import { createStyles, Text } from '@mantine/core';
 import { useHover } from '@mantine/hooks';
 import Image from 'next/image';
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, useEffect, useState } from 'react'
 import PlayButton from '../PlayButton/PlayButton';
+import FastAverageColor from 'fast-average-color';
+const fac = new FastAverageColor();
 
 type SplashItemProps = {
     img: string;
     title: string;
+    emitAvgColor: (color: string) => void;
 }
 
 const useStyles = createStyles({
@@ -25,9 +28,20 @@ const useStyles = createStyles({
     }
 });
 
-const SplashItem: FunctionComponent<SplashItemProps> = ({ img, title }) => {
+const SplashItem: FunctionComponent<SplashItemProps> = ({ img, title, emitAvgColor }) => {
     const { classes, cx } = useStyles();
     const { hovered, ref } = useHover();
+    const [avgColor, setAvgColor] = useState('');
+
+    useEffect(() => {
+        fac.getColorAsync(img).then(color => {
+            setAvgColor(color.rgba);
+        });
+    }, []);
+
+    useEffect(() => {
+        emitAvgColor(avgColor);
+    }, [hovered])
 
     return (
         <div ref={ref} className={cx(classes.wrapper, 'rounded-md overflow-hidden relative h-20 flex cursor-pointer')}>
