@@ -58,11 +58,11 @@ const UserProfile = () => {
                     </div>
                 </Menu.Target>
                 <Menu.Dropdown>
-                    <Menu.Item rightSection={<ExternalLink size={20} />}>Konto</Menu.Item>
-                    <Menu.Item>Profil</Menu.Item>
+                    <Menu.Item rightSection={<ExternalLink size={20} />}>Account</Menu.Item>
+                    <Menu.Item>Profile</Menu.Item>
                     <Menu.Item rightSection={<ExternalLink size={20} />}>Support</Menu.Item>
-                    <Menu.Item rightSection={<ExternalLink size={20} />}>Herunterladen</Menu.Item>
-                    <Menu.Item>Abmelden</Menu.Item>
+                    <Menu.Item rightSection={<ExternalLink size={20} />}>Download</Menu.Item>
+                    <Menu.Item>Log out</Menu.Item>
                 </Menu.Dropdown>
             </Menu>
         </div>

@@ -96,7 +96,7 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(30, 50, 100)",
         "img": "https://t.scdn.co/images/ea364e99656e46a096ea1df50f581efe",
-        "title": "Für dich erstellt"
+        "title": "Made For You"
     },
     {
         "bg": "rgb(141, 103, 171)",
@@ -106,27 +106,27 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(232, 17, 91)",
         "img": "https://i.scdn.co/image/ab67706f000000027ea4d505212b9de1f72c5112",
-        "title": "Neuerscheinungen"
+        "title": "New Releases"
     },
     {
         "bg": "rgb(141, 103, 171)",
         "img": "https://t.scdn.co/images/d0fb2ab104dc4846bdc56d72b0b0d785.jpeg",
-        "title": "Entdecken"
+        "title": "Discover"
     },
     {
         "bg": "rgb(30, 50, 100)",
         "img": "https://t.scdn.co/images/8cfa9cb1e43a404db76eed6ad594057c",
-        "title": "Live-Events"
+        "title": "Live Events"
     },
     {
         "bg": "rgb(255, 200, 100)",
         "img": "https://t.scdn.co/images/a2a24668f16c4e9680233a0d7d244a4b.jpeg",
-        "title": "Sommer"
+        "title": "Summer"
     },
     {
         "bg": "rgb(141, 103, 171)",
         "img": "https://i.scdn.co/image/ab67706f00000002aa93fe4e8c2d24fc62556cba",
-        "title": "Stimmung"
+        "title": "Mood"
     },
     {
         "bg": "rgb(220, 20, 140)",
@@ -136,7 +136,7 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(71, 125, 149)",
         "img": "https://i.scdn.co/image/ab67706f00000002c414e7daf34690c9f983f76e",
-        "title": "Chillout"
+        "title": "Chill"
     },
     {
         "bg": "rgb(180, 155, 200)",
@@ -161,17 +161,17 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(71, 125, 149)",
         "img": "https://i.scdn.co/image/ab67706f00000002ffa215be1a4c64e3cbf59d1e",
-        "title": "Im Auto"
+        "title": "In the car"
     },
     {
         "bg": "rgb(30, 50, 100)",
         "img": "https://i.scdn.co/image/ab67706f00000002b70e0223f544b1faa2e95ed0",
-        "title": "Schlafen"
+        "title": "Sleep"
     },
     {
         "bg": "rgb(156, 240, 225)",
         "img": "https://t.scdn.co/media/links/workout-274x274.jpg",
-        "title": "Fitness"
+        "title": "Workout"
     },
     {
         "bg": "rgb(96, 129, 8)",
@@ -186,7 +186,7 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(186, 93, 7)",
         "img": "https://t.scdn.co/images/4c8b58ab42b54296ad5379514d36edac",
-        "title": "Jahrzehnte"
+        "title": "Decades"
     },
     {
         "bg": "rgb(119, 119, 119)",
@@ -196,17 +196,17 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(71, 125, 149)",
         "img": "https://i.scdn.co/image/ab67706f00000002ec9d60059aa215a7ba364695",
-        "title": "Zu Hause"
+        "title": "At Home"
     },
     {
         "bg": "rgb(141, 103, 171)",
         "img": "https://t.scdn.co/images/15a38c44c4484cc3a078aaab5bd4e828",
-        "title": "Kinder und Familie"
+        "title": "Kids & Family"
     },
     {
         "bg": "rgb(220, 20, 140)",
         "img": "https://i.scdn.co/image/ab67706f000000023c5a4aaf5df054a9beeb3d82",
-        "title": "RnB"
+        "title": "R&B"
     },
     {
         "bg": "rgb(141, 103, 171)",
@@ -216,7 +216,7 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(80, 55, 80)",
         "img": "https://i.scdn.co/image/ab67706f00000002e4eadd417a05b2546e866934",
-        "title": "Konzentration"
+        "title": "Focus"
     },
     {
         "bg": "rgb(30, 50, 100)",
@@ -226,17 +226,17 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(80, 155, 245)",
         "img": "https://t.scdn.co/images/c9a01586687a45a78c56d9be5aed3c79.jpeg",
-        "title": "LGBTQ*"
+        "title": "Pride"
     },
     {
         "bg": "rgb(140, 25, 50)",
         "img": "https://i.scdn.co/image/ab67706f0000000213601d4833623a4d6b328e38",
-        "title": "Romantik"
+        "title": "Romance"
     },
     {
         "bg": "rgb(175, 40, 150)",
         "img": "https://i.scdn.co/image/ab67706f000000026abff8de68c75470ea8f0665",
-        "title": "TV und Filme"
+        "title": "TV & Movies"
     },
     {
         "bg": "rgb(175, 40, 150)",
@@ -246,12 +246,12 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(141, 103, 171)",
         "img": "https://i.scdn.co/image/ab67706f000000023e0130fcd5d106f1402b4707",
-        "title": "Klassik"
+        "title": "Classical"
     },
     {
         "bg": "rgb(186, 93, 7)",
         "img": "https://i.scdn.co/image/ab67706f000000025a051b0271d3e98edfdc4c09",
-        "title": "Kochen und Essen"
+        "title": "Cooking & Dining"
     },
     {
         "bg": "rgb(225, 51, 0)",
@@ -266,7 +266,7 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(20, 138, 8)",
         "img": "https://i.scdn.co/image/ab67706f00000002978b9f4a4f40b430fd0d837e",
-        "title": "K-pop"
+        "title": "K-Pop"
     },
     {
         "bg": "rgb(235, 30, 50)",
@@ -291,7 +291,7 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(13, 115, 236)",
         "img": "https://i.scdn.co/image/ab67706f00000002a76a2ccb454ff0e1720a51a5",
-        "title": "Karibik"
+        "title": "Caribbean"
     },
     {
         "bg": "rgb(225, 17, 139)",
@@ -306,7 +306,7 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(45, 70, 185)",
         "img": "https://t.scdn.co/images/44cf5615d3244f289fcedefa96b85db9",
-        "title": "Reise"
+        "title": "Travel"
     },
     {
         "bg": "rgb(71, 125, 149)",
@@ -321,7 +321,7 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(13, 115, 236)",
         "img": "https://t.scdn.co/images/b4182906bf244b4994805084c057e9ee.jpeg",
-        "title": "Trendsetter"
+        "title": "Tastemakers"
     },
     {
         "bg": "rgb(80, 155, 245)",
@@ -336,7 +336,7 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(141, 103, 171)",
         "img": "https://i.scdn.co/image/ab67706f00000002d3f07aa10d05fb4baab12b94",
-        "title": "Arabisch"
+        "title": "Arab"
     },
     {
         "bg": "rgb(180, 155, 200)",
@@ -351,12 +351,12 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(140, 25, 50)",
         "img": "https://i.scdn.co/image/ab676d63000076a0c9657833d9c169782b961c9c",
-        "title": "Songwriter*innen"
+        "title": "Songwriters"
     },
     {
         "bg": "rgb(30, 50, 100)",
         "img": "https://i.scdn.co/image/ab67706f0000000237df164786f688dd0ccd8744",
-        "title": "Folk & Akustik"
+        "title": "Folk & Acoustic"
     },
     {
         "bg": "rgb(160, 195, 210)",
@@ -371,6 +371,6 @@ export const genres: Genre[] = [
     {
         "bg": "rgb(245, 115, 160)",
         "img": "https://t.scdn.co/images/29bfbe4d5a564bad8f10f9e6d6e654e0.jpeg",
-        "title": "Gesprochenes"
+        "title": "Word"
     }
-]
+];

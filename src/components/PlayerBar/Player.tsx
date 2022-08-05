@@ -47,7 +47,7 @@ const Player = () => {
             <div className="mb-[12px]">
                 <div className="flex items-center text-[#b3b3b3] w-full gap-4">
                     <div className="flex-1 flex gap-4 items-center justify-end">
-                        <ControlButton tooltipLabel="Shuffle aktivieren" icon={<ArrowsShuffle size={20} />} />
+                        <ControlButton tooltipLabel="Enable shuffle" icon={<ArrowsShuffle size={20} />} />
                         <ControlButton icon={<PlayerSkipBack fill="currentColor" size={20} />} />
                     </div>
                     <div className="w-8 h-8 rounded-full text-black bg-white flex justify-center items-center hover:scale-110">
@@ -59,7 +59,7 @@ const Player = () => {
                     </div>
                     <div className="flex-1 flex gap-4 items-center justify-start">
                         <ControlButton icon={<PlayerSkipForward fill="currentColor" size={20} />} />
-                        <ControlButton tooltipLabel="Wiederholen aktivieren" icon={<Repeat size={20} />} />
+                        <ControlButton tooltipLabel="Enable repeat" icon={<Repeat size={20} />} />
                     </div>
                 </div>
             </div>

@@ -53,7 +53,7 @@ const MediaSection: FunctionComponent<MediaSectionProps & { children: ReactNode 
                             <Text lineClamp={1} size={24} color="white" weight={700}>{title}</Text>
                         </NormalLink>
                         <NormalLink href={link} passHref>
-                            <Text size={12} weight={700} color="#b3b3b3" className='uppercase'>Alles anzeigen</Text>
+                            <Text size={12} weight={700} color="#b3b3b3" className='uppercase'>See All</Text>
                         </NormalLink>
                     </>
                 ) : (

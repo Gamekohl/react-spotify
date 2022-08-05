@@ -37,7 +37,7 @@ const Home: NextPage = () => {
   return (
     <>
       <Head>
-        <title>Spotify - Webplayer</title>
+        <title>Spotify - Web Player</title>
       </Head>
       <div>
         <div className='gap-6 grid'>
@@ -57,17 +57,17 @@ const Home: NextPage = () => {
               ))}
             </div>
           </section>
-          <MediaSection link='/' title='Wieder reinhören'>
+          <MediaSection link='/' title='Jump back in'>
             {dummyData.map(item => (
               <MediaItem key={item.id} {...item} />
             ))}
           </MediaSection>
-          <MediaSection link='/' title='Zuletzt gehört'>
+          <MediaSection link='/' title='Recently played'>
             {reversed.map((item, key) => (
               <MediaItem key={key} {...item} />
             ))}
           </MediaSection>
-          <MediaSection link='/' title='Deine Lieblingskünstler*innen'>
+          <MediaSection link='/' title='Your favorite artists'>
             {artists.map((item, key) => (
               <ArtistItem key={key} {...item} />
             ))}

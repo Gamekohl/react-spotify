@@ -5,9 +5,9 @@ const Podcasts = () => {
     return (
         <>
             <Head>
-                <title>Spotify - Bibliothek</title>
+                <title>Spotify - Library</title>
             </Head>
-            <div>Podcasts</div>
+            <div>Podcasts - WIP</div>
         </>
     )
 }

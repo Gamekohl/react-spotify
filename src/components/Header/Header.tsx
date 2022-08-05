@@ -6,14 +6,12 @@ import { toggleMenu } from '../../store/features/menu.slice';
 import { useMediaQuery } from '@mantine/hooks';
 import { Breakpoint, maxWidth } from '../../utils/breakpoints';
 import SearchBar from './SearchBar/SearchBar';
-import { useStyles } from '../../utils/styles';
 import CollectionMenu from './CollectionMenu/CollectionMenu';
 
 const Header = () => {
     const dispatch = useAppDispatch();
     const router = useRouter();
     const sm = useMediaQuery(maxWidth(Breakpoint.sm));
-    const { cx } = useStyles();
 
     const openMenu = () => {
         dispatch(toggleMenu());

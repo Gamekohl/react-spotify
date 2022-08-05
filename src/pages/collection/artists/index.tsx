@@ -9,9 +9,9 @@ const Artists: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Spotify - Bibliothek</title>
+                <title>Spotify - Library</title>
             </Head>
-            <Section title='Künstler*innen'>
+            <Section title='Artists'>
                 {artists.map((item, key) => (
                     <ArtistItem key={key} {...item} />
                 ))}

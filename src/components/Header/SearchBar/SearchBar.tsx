@@ -57,7 +57,7 @@ const SearchBar = () => {
                     input: classes.input,
                     icon: classes.icon
                 }}
-                placeholder="Künstler*innen, Songs oder Podcasts"
+                placeholder="Artists, songs or podcasts"
                 icon={<Search size={24} color="#000" />}
             />
         </motion.div>

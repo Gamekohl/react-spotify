@@ -54,13 +54,13 @@ const Search: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Spotify - Suche</title>
+                <title>Spotify - Search</title>
             </Head>
             <div>
                 <div className='grid gap-8'>
                     <section>
                         <div className='flex mb-4 items-end justify-between'>
-                            <Text lineClamp={1} size={24} color="white" weight={700}>Deine Top-Genres</Text>
+                            <Text lineClamp={1} size={24} color="white" weight={700}>Your top genres</Text>
                         </div>
                         <div className='relative'>
                             <div className="overflow-auto scroll-smooth">
@@ -75,7 +75,7 @@ const Search: NextPage = () => {
                     </section>
                     <section>
                         <div className='flex mb-4 items-end justify-between'>
-                            <Text lineClamp={1} size={24} color="white" weight={700}>Alle durchsuchen</Text>
+                            <Text lineClamp={1} size={24} color="white" weight={700}>Browse all</Text>
                         </div>
                         <div className={classes.browseAllContainer}>
                             {genres.map((item, key) => (

@@ -8,11 +8,11 @@ const Greeting: FunctionComponent<TextProps> = ({ ...props }) => {
     const hours = new Date().getHours();
 
     if (hours < 12) {
-      setGreeting('Guten Morgen');
+      setGreeting('Good morning');
     } else if (hours >= 12 && hours < 18) {
-      setGreeting('Guten Tag');
+      setGreeting('Hello');
     } else {
-      setGreeting('Guten Abend');
+      setGreeting('Good evening');
     }
   }, []);
 

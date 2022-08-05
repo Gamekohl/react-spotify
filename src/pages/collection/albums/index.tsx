@@ -10,9 +10,9 @@ const Albums: NextPage = () => {
     return (
         <>
             <Head>
-                <title>Spotify - Bibliothek</title>
+                <title>Spotify - Library</title>
             </Head>
-            <Section title='Alben'>
+            <Section title='Albums'>
                 {dummyData.map((item, key) => (
                     <MediaItem key={key} {...item} />
                 ))}

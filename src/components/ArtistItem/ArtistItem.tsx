@@ -34,7 +34,7 @@ const ArtistItem: FunctionComponent<AristItemProps> = (item) => {
                 </div>
                 <div className='min-h-[62px]'>
                     <Text title={item.name} lineClamp={1} className='pb-1' size="md" weight={700} color="white">{item.name}</Text>
-                    <Text lineClamp={1} size="sm" color="#b3b3b3">Künstler*in</Text>
+                    <Text lineClamp={1} size="sm" color="#b3b3b3">Artist</Text>
                 </div>
             </div>
         </div>

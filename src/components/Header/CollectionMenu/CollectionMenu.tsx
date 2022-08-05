@@ -21,11 +21,11 @@ const buttons = [
     },
     {
         link: '/collection/artists',
-        title: 'Künstler*innen'
+        title: 'Artists'
     },
     {
         link: '/collection/albums',
-        title: 'Alben'
+        title: 'Albums'
     },
 ];
 

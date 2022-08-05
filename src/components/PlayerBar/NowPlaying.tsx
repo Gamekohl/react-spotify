@@ -38,7 +38,7 @@ const NowPlaying = () => {
             </div>
             <div className="text-[#b3b3b3] flex items-center">
                 <div className="w-8 h-8 flex justify-center items-center">
-                    <ControlButton tooltipLabel="In Bibliothek speichern" icon={<Heart size={20} />} />
+                    <ControlButton tooltipLabel="Save to Your Library" icon={<Heart size={20} />} />
                 </div>
                 <div className="w-8 h-8 flex justify-center items-center">
                     <ControlButton tooltipLabel="Miniplayer" icon={<PictureInPicture size={20} />} />

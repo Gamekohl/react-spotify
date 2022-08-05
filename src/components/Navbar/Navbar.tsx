@@ -105,12 +105,12 @@ const Navbar = () => {
             <div className={cx({ 'flex flex-col justify-center': isCollapsed }, 'mx-6 my-3')}>
                 {getItem({
                     url: '',
-                    title: 'App installieren',
+                    title: 'Install app',
                     icon: <Download size={24} />
                 })}
                 {getItem({
                     url: '',
-                    title: isCollapsed ? 'Vergrößern' : 'Verkleinern',
+                    title: isCollapsed ? 'Expand' : 'Collapse',
                     icon: isCollapsed ? <ChevronsRight size={24} /> : <ChevronsLeft size={24} />,
                     onClick: toggleNavbar
                 })}

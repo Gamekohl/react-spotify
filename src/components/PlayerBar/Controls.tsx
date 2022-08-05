@@ -11,8 +11,8 @@ const Controls = () => {
     return (
         <div className="flex items-center flex-1 justify-end gap-4 text-[#a7a7a7]">
             <ControlButton tooltipLabel="Lyrics" icon={<Microphone2 size={18} />} />
-            <ControlButton tooltipLabel="Warteschlange" icon={<PlaylistAdd size={20} />} />
-            <ControlButton tooltipLabel="Mit Gerät verbinden" icon={<DeviceDesktop size={20} />} />
+            <ControlButton tooltipLabel="Queue" icon={<PlaylistAdd size={20} />} />
+            <ControlButton tooltipLabel="Connect to a device" icon={<DeviceDesktop size={20} />} />
             <div className="flex items-center gap-2">
                 {value >= 50 ? <Volume size={20} /> : value > 0 ? <Volume2 size={20} /> : <Volume3 size={20} />}
                 <CSlider

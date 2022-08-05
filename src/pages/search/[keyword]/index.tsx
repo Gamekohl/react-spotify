@@ -1,25 +1,9 @@
-import { GetServerSideProps, NextPage } from 'next'
-import React, { useEffect } from 'react'
+import { NextPage } from 'next'
+import React from 'react'
 
-export const getServerSideProps: GetServerSideProps = async (ctx) => {
-    const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${ctx.params.keyword}`);
-    const data = await res.json();
-
-    return {
-        props: {
-            data
-        }
-    }
-}
-
-const KeywordSearch: NextPage = ({ data }: any) => {
-    useEffect(() => {
-        console.log(data);
-    }, [data])
-
-
+const KeywordSearch: NextPage = () => {
     return (
-        <div>KeywordSearch</div>
+        <div>KeywordSearch - WIP</div>
     )
 }
 
