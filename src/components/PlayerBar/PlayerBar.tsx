@@ -1,10 +1,15 @@
 import { createStyles } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks';
+import dynamic from 'next/dynamic';
 import React from 'react'
+import { Breakpoint, maxWidth } from '../../utils/breakpoints';
 import Controls from './Controls';
 import NowPlaying from './NowPlaying';
-import Player from './Player';
+const Player = dynamic(() => import('./Player'), {
+    ssr: false
+});
 
-const useStyles = createStyles({
+const useStyles = createStyles((theme, { sm }: { sm: boolean }) => ({
     wrapper: {
         gridArea: 'now-playing-bar',
         backgroundColor: '#181818',
@@ -12,21 +17,26 @@ const useStyles = createStyles({
         zIndex: 4
     },
     bar: {
-        minWidth: '620px',
+        minWidth: sm ? '100%' : '620px',
         height: '91px',
         borderTop: '1px solid #282828'
     }
-})
+}));
 
 const PlayerBar = () => {
-    const { classes, cx } = useStyles();
+    const sm = useMediaQuery(maxWidth(Breakpoint.sm));
+    const { classes, cx } = useStyles({ sm });
 
     return (
         <div className={classes.wrapper}>
-            <div className={cx(classes.bar, 'px-4 flex items-center gap-8 justify-between')}>
-                <NowPlaying />
+            <div className={cx(
+                classes.bar,
+                !sm ? 'justify-between' : 'justify-center ',
+                'px-4 flex items-center gap-8'
+            )}>
+                {!sm && <NowPlaying />}
                 <Player />
-                <Controls />
+                {!sm && <Controls />}
             </div>
         </div>
     )

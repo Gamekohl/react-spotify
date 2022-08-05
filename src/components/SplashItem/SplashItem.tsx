@@ -4,11 +4,12 @@ import Image from 'next/image';
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import PlayButton from '../PlayButton/PlayButton';
 import FastAverageColor from 'fast-average-color';
+import { MediaItem } from '../models/MediaItem';
+import { useAppSelector } from '../../store/hooks';
+import { selectPlaying } from '../../store/features/nowPlaying.slice';
 const fac = new FastAverageColor();
 
-type SplashItemProps = {
-    img: string;
-    title: string;
+type SplashItemProps = MediaItem & {
     emitAvgColor: (color: string) => void;
 }
 
@@ -28,29 +29,32 @@ const useStyles = createStyles({
     }
 });
 
-const SplashItem: FunctionComponent<SplashItemProps> = ({ img, title, emitAvgColor }) => {
+const SplashItem: FunctionComponent<SplashItemProps> = ({ emitAvgColor, ...item }) => {
     const { classes, cx } = useStyles();
     const { hovered, ref } = useHover();
+    const { playing, id: playingId } = useAppSelector(selectPlaying);
     const [avgColor, setAvgColor] = useState('');
 
     useEffect(() => {
-        fac.getColorAsync(img).then(color => {
+        fac.getColorAsync(item.img).then(color => {
             setAvgColor(color.rgba);
         });
     }, []);
 
     useEffect(() => {
         emitAvgColor(avgColor);
-    }, [hovered])
+    }, [hovered]);
+
+    const isPlaying = playing && playingId === item.id;
 
     return (
         <div ref={ref} className={cx(classes.wrapper, 'rounded-md overflow-hidden relative h-20 flex cursor-pointer')}>
             <div className={classes.imgWrapper}>
-                <Image src={img} width="80" height="80" alt={title} />
+                <Image src={item.img} width="80" height="80" alt={item.title} />
             </div>
             <div className='flex flex-grow text-white justify-between items-center px-4'>
-                <Text lineClamp={2} size="md" weight={700}>{title}</Text>
-                {hovered && <PlayButton />}
+                <Text lineClamp={2} size="md" weight={700}>{item.title}</Text>
+                {(hovered || isPlaying) && <PlayButton {...item} />}
             </div>
         </div>
     )

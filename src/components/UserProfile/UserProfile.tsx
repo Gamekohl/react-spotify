@@ -1,6 +1,8 @@
 import { createStyles, Menu, Text } from '@mantine/core'
+import { useMediaQuery } from '@mantine/hooks';
 import { useState } from 'react';
 import { ChevronDown, ExternalLink } from 'tabler-icons-react';
+import { Breakpoint, maxWidth } from '../../utils/breakpoints';
 
 const useStyles = createStyles({
     dropdown: {
@@ -14,6 +16,7 @@ const useStyles = createStyles({
 })
 
 const UserProfile = () => {
+    const sm = useMediaQuery(maxWidth(Breakpoint.sm));
     const [opened, setOpened] = useState(false);
     const { classes, cx } = useStyles();
 
@@ -43,7 +46,7 @@ const UserProfile = () => {
                         <div>
                             <img className="w-8 h-8 p-0.5 rounded-full" src="https://avatars.dicebear.com/api/jdenticon/xyz.svg" />
                         </div>
-                        <Text size="sm" weight="bold">Julian</Text>
+                        {!sm && <Text size="sm" weight="bold">Julian</Text>}
                         <div className="mr-2">
                             <ChevronDown size={20} />
                         </div>

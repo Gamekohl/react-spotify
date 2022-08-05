@@ -3,13 +3,21 @@ import { motion } from 'framer-motion'
 import { ArrowsShuffle, PlayerSkipBack, PlayerPlay, PlayerPause, PlayerSkipForward, Repeat } from 'tabler-icons-react';
 import ControlButton from '../ControlButton/ControlButton';
 import { CSlider } from '../UI';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { selectPlaying, setPlaying } from '../../store/features/nowPlaying.slice';
+import { useMediaQuery } from '@mantine/hooks';
+import { Breakpoint, maxWidth } from '../../utils/breakpoints';
+import { useStyles } from '../../utils/styles';
 
 const Player = () => {
     const mockDuration = 435;
+    const sm = useMediaQuery(maxWidth(Breakpoint.sm));
+    const dispatch = useAppDispatch();
+    const { cx } = useStyles();
+    const { playing } = useAppSelector(selectPlaying);
     const [value, setValue] = useState(0);
-    const [playing, setPlaying] = useState(false);
 
-    const togglePlaying = () => setPlaying(!playing);
+    const togglePlaying = () => dispatch(setPlaying(!playing));
 
     const handleOnChange = (value: number) => {
         setValue((value / 100) * mockDuration);
@@ -27,7 +35,15 @@ const Player = () => {
     }
 
     return (
-        <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} id="player-controls" className="m-w-[722px] w-2/5 flex flex-col">
+        <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            id="player-controls"
+            className={cx(
+                sm ? 'w-full' : 'w-2/5',
+                'm-w-[722px] flex flex-col'
+            )}
+        >
             <div className="mb-[12px]">
                 <div className="flex items-center text-[#b3b3b3] w-full gap-4">
                     <div className="flex-1 flex gap-4 items-center justify-end">

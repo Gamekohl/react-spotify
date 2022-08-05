@@ -1,11 +1,16 @@
 import '../styles/globals.css'
 import type { AppProps } from 'next/app'
 import { MantineProvider } from '@mantine/core';
-import MainLayout from '../layouts/MainLayout';
 import { NowPlayingProvider } from '../contexts/useNowPlaying';
 import { motion, Variants } from 'framer-motion';
 import GlobalFonts from '../theming/GlobalFonts';
 import { appTheme } from '../theming/theme';
+import { Provider } from 'react-redux';
+import { store } from '../store/store';
+import dynamic from 'next/dynamic';
+const MainLayout = dynamic(() => import('../layouts/MainLayout'), {
+  ssr: false
+});
 
 const appVariants: Variants = {
   initial: {
@@ -23,24 +28,26 @@ const appVariants: Variants = {
 
 const App = ({ Component, pageProps, router }: AppProps) => {
   return (
-    <MantineProvider
-      withGlobalStyles
-      withNormalizeCSS
-      theme={{
-        ...appTheme,
-        fontFamily: "Gotham, sans-serif",
-        colorScheme: 'dark'
-      }}
-    >
-      <GlobalFonts />
-      <NowPlayingProvider>
-        <MainLayout>
-          <motion.div key={router.route} initial="initial" animate="animate" variants={appVariants}>
-            <Component {...pageProps} />
-          </motion.div>
-        </MainLayout>
-      </NowPlayingProvider>
-    </MantineProvider>
+    <Provider store={store}>
+      <MantineProvider
+        withGlobalStyles
+        withNormalizeCSS
+        theme={{
+          ...appTheme,
+          fontFamily: "Gotham, sans-serif",
+          colorScheme: 'dark'
+        }}
+      >
+        <GlobalFonts />
+        <NowPlayingProvider>
+          <MainLayout>
+            <motion.div key={router.route} initial="initial" animate="animate" variants={appVariants}>
+              <Component {...pageProps} />
+            </motion.div>
+          </MainLayout>
+        </NowPlayingProvider>
+      </MantineProvider>
+    </Provider>
   );
 }
 

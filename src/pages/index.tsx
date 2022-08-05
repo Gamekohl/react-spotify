@@ -3,6 +3,11 @@ import Greeting from '../components/Greeting/Greeting'
 import { createStyles } from '@mantine/core'
 import SplashItem from '../components/SplashItem/SplashItem'
 import { useState } from 'react'
+import { dummyData } from '../data/dummy'
+import MediaSection from '../components/MediaSection/MediaSection'
+import MediaItem from '../components/MediaItem/MediaItem';
+import { useMediaQuery } from '@mantine/hooks'
+import { Breakpoint, maxWidth } from '../utils/breakpoints'
 
 const useStyles = createStyles({
   splashItems: {
@@ -18,23 +23,47 @@ const useStyles = createStyles({
 })
 
 const Home: NextPage = () => {
+  const sm = useMediaQuery(maxWidth(Breakpoint.sm));
   const { classes, cx } = useStyles();
   const [avgColor, setAvgColor] = useState('rgb(83, 83, 83)');
+  const reversed = [].concat(dummyData).reverse();
 
   const handleColorChange = (color: string) => {
     setAvgColor(color);
   }
 
   return (
-    <div style={{ height: '2000px' }}>
+    <div>
       <div className='gap-6 grid'>
         <section className='flex flex-col min-h-[200px] relative mb-4'>
-          <div style={{ backgroundColor: avgColor }} className={cx(classes.dynamicBackgroundWrapper, 'absolute h-[332px] -mt-16 -ml-8 -z-10')}></div>
+          <div
+            style={{ backgroundColor: avgColor }}
+            className={cx(
+              classes.dynamicBackgroundWrapper,
+              sm ? 'h-[300px]' : 'h-[332px]',
+              'absolute -mt-16 -ml-8 -z-10'
+            )}
+          ></div>
           <Greeting className='mb-6' />
           <div className={classes.splashItems}>
-            <SplashItem emitAvgColor={handleColorChange} img='https://i.scdn.co/image/ab67616d0000b273e70aac569b94abd971112f1b' title='Berserker' />
+            {dummyData.slice(0, 6).map(item => (
+              <SplashItem key={item.id} emitAvgColor={handleColorChange} {...item} />
+            ))}
           </div>
         </section>
+        <MediaSection link='/' title='Wieder reinhören'>
+          {dummyData.map(item => (
+            <MediaItem key={item.id} {...item} />
+          ))}
+        </MediaSection>
+        <MediaSection link='/' title='Zuletzt gehört'>
+          {reversed.map((item, key) => (
+            <MediaItem key={key} {...item} />
+          ))}
+        </MediaSection>
+        <MediaSection link='/' title='Deine Lieblingskünstler*innen'>
+
+        </MediaSection>
       </div>
     </div>
   )

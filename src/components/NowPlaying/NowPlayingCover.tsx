@@ -2,6 +2,8 @@ import { createStyles } from '@mantine/core';
 import React, { FunctionComponent } from 'react'
 import { useNowPlayingContext } from '../../contexts/useNowPlaying';
 import { ChevronDown, ChevronUp } from 'tabler-icons-react';
+import { useAppSelector } from '../../store/hooks';
+import { selectNowPlayingMedia } from '../../store/features/nowPlaying.slice';
 
 const useStyles = createStyles({
     wrapper: {
@@ -20,7 +22,8 @@ type NowPlayingCoverProps = {
 const NowPlayingCover: FunctionComponent<NowPlayingCoverProps> = (props) => {
     const { small = false } = props;
     const { classes, cx } = useStyles();
-    const { media, setIsMinimized, isMinimized } = useNowPlayingContext();
+    const { setIsMinimized, isMinimized } = useNowPlayingContext();
+    const media = useAppSelector(selectNowPlayingMedia);
 
     const toggleMinimized = () => {
         setIsMinimized(!isMinimized);
@@ -35,7 +38,7 @@ const NowPlayingCover: FunctionComponent<NowPlayingCoverProps> = (props) => {
                     <ChevronUp size={24} />
                 )}
             </div>
-            <img className="w-full h-full object-cover left-0 top-0 absolute" src={media.image} />
+            <img className="w-full h-full object-cover left-0 top-0 absolute" src={media.img} />
         </div>
     )
 }
