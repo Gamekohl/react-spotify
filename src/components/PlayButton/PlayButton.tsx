@@ -2,7 +2,7 @@ import { createStyles } from '@mantine/core'
 import React, { FunctionComponent, HTMLProps } from 'react'
 import { PlayerPlay, PlayerPause } from 'tabler-icons-react'
 import { motion } from 'framer-motion'
-import { MediaItem } from '../models/MediaItem';
+import { MediaItem } from '../../models/MediaItem';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { selectPlaying, setNowPlayingMedia, setPlaying } from '../../store/features/nowPlaying.slice';
 

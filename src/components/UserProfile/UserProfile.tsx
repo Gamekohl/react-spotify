@@ -46,10 +46,15 @@ const UserProfile = () => {
                         <div>
                             <img className="w-8 h-8 p-0.5 rounded-full" src="https://avatars.dicebear.com/api/jdenticon/xyz.svg" />
                         </div>
-                        {!sm && <Text size="sm" weight="bold">Julian</Text>}
-                        <div className="mr-2">
-                            <ChevronDown size={20} />
-                        </div>
+                        {!sm && (
+                            <>
+                                <Text size="sm" weight="bold">Julian</Text>
+                                <div className="mr-2">
+                                    <ChevronDown size={20} />
+                                </div>
+                            </>
+                        )}
+
                     </div>
                 </Menu.Target>
                 <Menu.Dropdown>

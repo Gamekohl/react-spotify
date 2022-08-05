@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React, { FunctionComponent, useEffect, useState } from 'react'
 import PlayButton from '../PlayButton/PlayButton';
 import FastAverageColor from 'fast-average-color';
-import { MediaItem } from '../models/MediaItem';
+import { MediaItem } from '../../models/MediaItem';
 import { useAppSelector } from '../../store/hooks';
 import { selectPlaying } from '../../store/features/nowPlaying.slice';
 const fac = new FastAverageColor();

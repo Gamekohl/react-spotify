@@ -16,7 +16,7 @@ const PlayerBar = dynamic(() => import('../components/PlayerBar/PlayerBar'), {
 const useStyles = createStyles((theme, { sm }: { sm: boolean }) => ({
     wrapper: {
         gridTemplateAreas: `"${sm ? 'main-view' : 'nav-bar'} main-view buddy-feed" "now-playing-bar now-playing-bar now-playing-bar"`,
-        gridTemplateColumns: 'auto 1fr',
+        gridTemplateColumns: sm ? '1fr' : 'auto 1fr',
         gridTemplateRows: '1fr auto'
     },
     mainView: {
@@ -33,7 +33,6 @@ const MainLayout: FunctionComponent<{ children: ReactNode }> = ({ children }) =>
     const opened = useAppSelector(selectMenuOpened);
     const sm = useMediaQuery(maxWidth(Breakpoint.sm));
     const { classes, cx } = useStyles({ sm });
-
     const closeMenu = () => dispatch(toggleMenu());
 
     return (
@@ -56,7 +55,7 @@ const MainLayout: FunctionComponent<{ children: ReactNode }> = ({ children }) =>
                 )}
                 <ScrollArea>
                     <div className={classes.mainView}>
-                        <main className='mt-16 inline-block w-full pt-6 px-8'>
+                        <main className='mt-16 inline-block w-full py-6 px-8'>
                             {children}
                         </main>
                     </div>

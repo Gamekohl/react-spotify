@@ -4,7 +4,7 @@ import Image from 'next/image';
 import React, { FunctionComponent } from 'react'
 import PlayButton from '../PlayButton/PlayButton';
 import { motion } from 'framer-motion';
-import { MediaItem } from '../models/MediaItem';
+import { MediaItem } from '../../models/MediaItem';
 import { useAppSelector } from '../../store/hooks';
 import { selectPlaying } from '../../store/features/nowPlaying.slice';
 

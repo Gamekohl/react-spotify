@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import type { MediaItem } from "../../components/models/MediaItem";
+import type { MediaItem } from "../../models/MediaItem";
 import { dummyData } from "../../data/dummy";
 import { RootState } from "../store";
 

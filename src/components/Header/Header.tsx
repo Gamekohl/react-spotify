@@ -1,18 +1,21 @@
 import { Button } from '@mantine/core';
 import Link from 'next/link';
 import { useRouter } from 'next/router'
-import { ChevronLeft, ChevronRight, Menu2 } from 'tabler-icons-react'
+import { Menu2 } from 'tabler-icons-react'
 import UserProfile from '../UserProfile/UserProfile'
 import { motion } from 'framer-motion';
 import { useAppDispatch } from '../../store/hooks';
 import { toggleMenu } from '../../store/features/menu.slice';
 import { useMediaQuery } from '@mantine/hooks';
 import { Breakpoint, maxWidth } from '../../utils/breakpoints';
+import SearchBar from '../SearchBar/SearchBar';
+import { useStyles } from '../../utils/styles';
 
 const Header = () => {
     const dispatch = useAppDispatch();
-    const sm = useMediaQuery(maxWidth(Breakpoint.sm));
     const router = useRouter();
+    const sm = useMediaQuery(maxWidth(Breakpoint.sm));
+    const { cx } = useStyles();
 
     const openMenu = () => {
         dispatch(toggleMenu());
@@ -33,21 +36,15 @@ const Header = () => {
                 </Button.Group>
             </motion.div>
         </>
-    )
+    );
 
     return (
-        <header style={{ gridArea: 'main-view' }} className='w-full h-16 absolute flex justify-between px-8 py-4 bg-black z-20'>
+        <header style={{ gridArea: 'main-view' }} className='w-full h-16 absolute flex gap-4 items-center justify-between px-8 py-4 bg-black z-20'>
             <div className='flex justify-between items-center gap-4'>
-                {sm ? (
-                    <Menu2 size={32} onClick={openMenu} />
-                ) : (
-                    <>
-                        <ChevronLeft size={32} />
-                        <ChevronRight size={32} />
-                    </>
-                )}
+                {sm && <Menu2 size={32} onClick={openMenu} />}
             </div>
             {(!sm && new RegExp('\/collection/.*', 'g').test(router.pathname)) && collectionHeader}
+            {new RegExp('\/search.*', 'g').test(router.pathname) && <SearchBar />}
             <UserProfile />
         </header>
     )
