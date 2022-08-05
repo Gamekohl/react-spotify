@@ -19,7 +19,7 @@ const useStyles = createStyles({
         gridTemplateColumns: 'repeat(var(--column-count), minmax(0, 1fr))',
 
         [`@media ${maxWidth(Breakpoint.sm)}`]: {
-            '--column-count': 3,
+            '--column-count': 2,
         },
         [`@media ${minWidth(Breakpoint.sm)}`]: {
             '--column-count': 3,
@@ -46,7 +46,7 @@ const MediaSection: FunctionComponent<MediaSectionProps & { children: ReactNode 
         <section className='flex flex-col min-h-[300px] min-w-full relative'>
             <div className='flex mb-4 items-end justify-between'>
                 <NormalLink href={link} passHref>
-                    <Text size={24} color="white" weight={700}>{title}</Text>
+                    <Text lineClamp={1} size={24} color="white" weight={700}>{title}</Text>
                 </NormalLink>
                 <NormalLink href={link} passHref>
                     <Text size={12} weight={700} color="#b3b3b3" className='uppercase'>Alles anzeigen</Text>
