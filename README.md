@@ -9,7 +9,6 @@ Use the link down below to check out the clone:
 
 
 ## Tech Stack
----
 - [React](https://github.com/facebook/react) ∙ [Redux](https://github.com/reduxjs/redux)
     - Client & Data management
 - [NextJS](https://github.com/vercel/next.js)
@@ -18,7 +17,6 @@ Use the link down below to check out the clone:
     - Styling, Layout, Theme, Components
 
 ## Deployment
----
 The deployment is done using Vercel.
 
 ## Author
