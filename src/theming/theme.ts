@@ -14,5 +14,15 @@ export const appTheme: MantineThemeOverride = {
             "#00431b",
             "#001804"
         ]
+    },
+    components: {
+        Button: {
+            styles: {
+                root: {
+                    borderRadius: '500px',
+                    transition: 'background-color .3s ease'
+                }
+            }
+        }
     }
 }

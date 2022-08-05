@@ -3,11 +3,13 @@ import Greeting from '../components/Greeting/Greeting'
 import { createStyles } from '@mantine/core'
 import SplashItem from '../components/SplashItem/SplashItem'
 import { useState } from 'react'
-import { dummyData } from '../data/dummy'
+import { artists, dummyData } from '../data/dummy'
 import MediaSection from '../components/MediaSection/MediaSection'
 import MediaItem from '../components/MediaItem/MediaItem';
 import { useMediaQuery } from '@mantine/hooks'
 import { Breakpoint, maxWidth } from '../utils/breakpoints'
+import ArtistItem from '../components/ArtistItem/ArtistItem'
+import Head from 'next/head'
 
 const useStyles = createStyles({
   splashItems: {
@@ -33,39 +35,46 @@ const Home: NextPage = () => {
   }
 
   return (
-    <div>
-      <div className='gap-6 grid'>
-        <section className='flex flex-col min-h-[200px] relative mb-4'>
-          <div
-            style={{ backgroundColor: avgColor }}
-            className={cx(
-              classes.dynamicBackgroundWrapper,
-              sm ? 'h-[300px]' : 'h-[332px]',
-              'absolute -mt-16 -ml-8 -z-10'
-            )}
-          ></div>
-          <Greeting className='mb-6' />
-          <div className={classes.splashItems}>
-            {dummyData.slice(0, 6).map(item => (
-              <SplashItem key={item.id} emitAvgColor={handleColorChange} {...item} />
+    <>
+      <Head>
+        <title>Spotify - Webplayer</title>
+      </Head>
+      <div>
+        <div className='gap-6 grid'>
+          <section className='flex flex-col min-h-[200px] relative mb-4'>
+            <div
+              style={{ backgroundColor: avgColor }}
+              className={cx(
+                classes.dynamicBackgroundWrapper,
+                sm ? 'h-[300px]' : 'h-[332px]',
+                'absolute -mt-16 -ml-8 -z-10'
+              )}
+            ></div>
+            <Greeting className='mb-6' />
+            <div className={classes.splashItems}>
+              {dummyData.slice(0, 6).map(item => (
+                <SplashItem key={item.id} emitAvgColor={handleColorChange} {...item} />
+              ))}
+            </div>
+          </section>
+          <MediaSection link='/' title='Wieder reinhören'>
+            {dummyData.map(item => (
+              <MediaItem key={item.id} {...item} />
             ))}
-          </div>
-        </section>
-        <MediaSection link='/' title='Wieder reinhören'>
-          {dummyData.map(item => (
-            <MediaItem key={item.id} {...item} />
-          ))}
-        </MediaSection>
-        <MediaSection link='/' title='Zuletzt gehört'>
-          {reversed.map((item, key) => (
-            <MediaItem key={key} {...item} />
-          ))}
-        </MediaSection>
-        <MediaSection link='/' title='Deine Lieblingskünstler*innen'>
-
-        </MediaSection>
+          </MediaSection>
+          <MediaSection link='/' title='Zuletzt gehört'>
+            {reversed.map((item, key) => (
+              <MediaItem key={key} {...item} />
+            ))}
+          </MediaSection>
+          <MediaSection link='/' title='Deine Lieblingskünstler*innen'>
+            {artists.map((item, key) => (
+              <ArtistItem key={key} {...item} />
+            ))}
+          </MediaSection>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 

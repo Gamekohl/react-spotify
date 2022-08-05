@@ -6,6 +6,7 @@ import { NormalLink } from '../UI';
 type MediaSectionProps = {
     title: string;
     link: string;
+    withLink?: boolean;
 }
 
 const useStyles = createStyles({
@@ -39,18 +40,25 @@ const useStyles = createStyles({
     }
 })
 
-const MediaSection: FunctionComponent<MediaSectionProps & { children: ReactNode }> = ({ title, link, children }) => {
+const MediaSection: FunctionComponent<MediaSectionProps & { children: ReactNode }> = ({ title, link, children, ...rest }) => {
+    const { withLink = true } = rest;
     const { classes } = useStyles();
 
     return (
         <section className='flex flex-col min-h-[300px] min-w-full relative'>
             <div className='flex mb-4 items-end justify-between'>
-                <NormalLink href={link} passHref>
+                {withLink ? (
+                    <>
+                        <NormalLink href={link} passHref>
+                            <Text lineClamp={1} size={24} color="white" weight={700}>{title}</Text>
+                        </NormalLink>
+                        <NormalLink href={link} passHref>
+                            <Text size={12} weight={700} color="#b3b3b3" className='uppercase'>Alles anzeigen</Text>
+                        </NormalLink>
+                    </>
+                ) : (
                     <Text lineClamp={1} size={24} color="white" weight={700}>{title}</Text>
-                </NormalLink>
-                <NormalLink href={link} passHref>
-                    <Text size={12} weight={700} color="#b3b3b3" className='uppercase'>Alles anzeigen</Text>
-                </NormalLink>
+                )}
             </div>
             <div className={classes.wrapper}>{children}</div>
         </section>

@@ -1,8 +1,14 @@
+import Head from 'next/head'
 import React from 'react'
 
 const Playlists = () => {
     return (
-        <div>Playlists</div>
+        <>
+            <Head>
+                <title>Spotify - Bibliothek</title>
+            </Head>
+            <div>Playlists</div>
+        </>
     )
 }
 

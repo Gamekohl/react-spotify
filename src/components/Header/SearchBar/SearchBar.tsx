@@ -4,7 +4,7 @@ import { Search } from 'tabler-icons-react'
 import { motion } from 'framer-motion';
 import { useRouter } from 'next/router';
 import { useDebouncedValue, useFocusWithin, useMediaQuery } from '@mantine/hooks';
-import { Breakpoint, maxWidth } from '../../utils/breakpoints';
+import { Breakpoint, maxWidth } from '../../../utils/breakpoints';
 
 const useStyles = createStyles((theme, { xs, focused }: { xs: boolean, focused: boolean }) => ({
     root: {

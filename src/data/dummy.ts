@@ -1,4 +1,5 @@
 import { nanoid } from "@reduxjs/toolkit";
+import { Artist } from "../models/Artist";
 import { Genre } from "../models/Genre";
 import { MediaItem } from "../models/MediaItem";
 
@@ -56,6 +57,33 @@ export const dummyData: MediaItem[] = [
         img: 'https://i.scdn.co/image/ab67616d00001e02668e3aca3167e6e569a9aa20',
         title: 'Master Of Puppets',
         interpreter: 'Metallica'
+    }
+]
+
+export const artists: Artist[] = [
+    {
+        name: 'Billie Eilish',
+        img: 'https://i.scdn.co/image/ab6761610000f178d8b9980db67272cb4d2c3daf'
+    },
+    {
+        name: 'Jay-Z',
+        img: 'https://i.scdn.co/image/ab6761610000f178c75afcd5a9027f60eaebb5e4'
+    },
+    {
+        name: 'Lil Peep',
+        img: 'https://i.scdn.co/image/ab6761610000f1786685f03de475c4efb27da3c4'
+    },
+    {
+        name: 'Eminem',
+        img: 'https://i.scdn.co/image/ab6761610000f178a00b11c129b27a88fc72f36b'
+    },
+    {
+        name: 'Metallica',
+        img: 'https://i.scdn.co/image/ab6761610000f1788101d13bdd630b0889acd2fd'
+    },
+    {
+        name: 'Shawn Mendes',
+        img: 'https://i.scdn.co/image/ab6761610000f17846e7a06fa6dfefaed6a3f0db'
     }
 ]
 

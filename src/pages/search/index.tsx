@@ -1,5 +1,6 @@
 import { createStyles, Text } from '@mantine/core';
 import { NextPage } from 'next';
+import Head from 'next/head';
 import React from 'react'
 import GenreItem from '../../components/GenreItem/GenreItem';
 import { genres } from '../../data/dummy';
@@ -51,35 +52,40 @@ const Search: NextPage = () => {
     const { classes } = useStyles();
 
     return (
-        <div>
-            <div className='grid gap-8'>
-                <section>
-                    <div className='flex mb-4 items-end justify-between'>
-                        <Text lineClamp={1} size={24} color="white" weight={700}>Deine Top-Genres</Text>
-                    </div>
-                    <div className='relative'>
-                        <div className="overflow-auto scroll-smooth">
-                            <div className={classes.gridContainer}>
-                                <GenreItem bg="#7b7b7b" title='Metal' img='https://i.scdn.co/image/ab67706f0000000285704160b49125ac95099ec8' />
-                                <GenreItem bg='#e61e32' title='Rock' img='https://i.scdn.co/image/ab67706f00000002fe6d8d1019d5b302213e3730' />
-                                <GenreItem bg='#ba5d07' title='Hip-Hop' img='https://i.scdn.co/image/ab67706f000000029bb6af539d072de34548d15c' />
-                                <GenreItem bg='#8d67ab' title='Pop' img='https://t.scdn.co/images/0a74d96e091a495bb09c0d83210910c3' />
+        <>
+            <Head>
+                <title>Spotify - Suche</title>
+            </Head>
+            <div>
+                <div className='grid gap-8'>
+                    <section>
+                        <div className='flex mb-4 items-end justify-between'>
+                            <Text lineClamp={1} size={24} color="white" weight={700}>Deine Top-Genres</Text>
+                        </div>
+                        <div className='relative'>
+                            <div className="overflow-auto scroll-smooth">
+                                <div className={classes.gridContainer}>
+                                    <GenreItem bg="#7b7b7b" title='Metal' img='https://i.scdn.co/image/ab67706f0000000285704160b49125ac95099ec8' />
+                                    <GenreItem bg='#e61e32' title='Rock' img='https://i.scdn.co/image/ab67706f00000002fe6d8d1019d5b302213e3730' />
+                                    <GenreItem bg='#ba5d07' title='Hip-Hop' img='https://i.scdn.co/image/ab67706f000000029bb6af539d072de34548d15c' />
+                                    <GenreItem bg='#8d67ab' title='Pop' img='https://t.scdn.co/images/0a74d96e091a495bb09c0d83210910c3' />
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </section>
-                <section>
-                    <div className='flex mb-4 items-end justify-between'>
-                        <Text lineClamp={1} size={24} color="white" weight={700}>Alle durchsurchen</Text>
-                    </div>
-                    <div className={classes.browseAllContainer}>
-                        {genres.map((item, key) => (
-                            <GenreItem smaller key={key} {...item} />
-                        ))}
-                    </div>
-                </section>
+                    </section>
+                    <section>
+                        <div className='flex mb-4 items-end justify-between'>
+                            <Text lineClamp={1} size={24} color="white" weight={700}>Alle durchsurchen</Text>
+                        </div>
+                        <div className={classes.browseAllContainer}>
+                            {genres.map((item, key) => (
+                                <GenreItem smaller key={key} {...item} />
+                            ))}
+                        </div>
+                    </section>
+                </div>
             </div>
-        </div>
+        </>
     )
 }
 
