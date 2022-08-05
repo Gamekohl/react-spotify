@@ -75,7 +75,7 @@ const Search: NextPage = () => {
                     </section>
                     <section>
                         <div className='flex mb-4 items-end justify-between'>
-                            <Text lineClamp={1} size={24} color="white" weight={700}>Alle durchsurchen</Text>
+                            <Text lineClamp={1} size={24} color="white" weight={700}>Alle durchsuchen</Text>
                         </div>
                         <div className={classes.browseAllContainer}>
                             {genres.map((item, key) => (
