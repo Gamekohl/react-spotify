@@ -1,5 +1,8 @@
 # Spotify Clone using React, NextJS and Redux
-This repository contains the source code of a **Spotify clone**. 
+This repository contains the source code of a **Spotify clone**. <br>
+Check it out and let me know your thoughts. If you like it make sure to give it a ⭐ Star!
+
+**NOTE:** The project is still in development and I will regularly make updates to the repo.
 
 ## Demo
 Use the link down below to check out the clone:
