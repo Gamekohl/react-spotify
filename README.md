@@ -2,7 +2,6 @@
 This repository contains the source code of a **Spotify clone**. 
 
 ## Demo
----
 Use the link down below to check out the clone:
 
 [Demo](https://react-spotify-3xnuxyq5l-gamekohl.vercel.app/)
