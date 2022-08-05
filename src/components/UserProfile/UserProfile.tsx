@@ -48,7 +48,7 @@ const UserProfile = () => {
                         </div>
                         {!sm && (
                             <>
-                                <Text size="sm" weight="bold">Julian</Text>
+                                <Text size="sm" weight="bold">John</Text>
                                 <div className="mr-2">
                                     <ChevronDown size={20} />
                                 </div>
