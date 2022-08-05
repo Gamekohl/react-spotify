@@ -39,6 +39,7 @@ const GenreItem: FunctionComponent<GenreItemProps> = ({ img, title, bg, ...rest 
             <Text size={smaller ? 24 : 40} weight={700} className='z-10 p-4 absolute break-words max-w-full'>{title}</Text>
             <div className='absolute right-0 bottom-0 flex rotate-[25deg] translate-x-[18%] translate-y-[5%]'>
                 <Image
+                    alt={title}
                     src={img}
                     width={smaller ? 100 : 128}
                     height={smaller ? 100 : 128}

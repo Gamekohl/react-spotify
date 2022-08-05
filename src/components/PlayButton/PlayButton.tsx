@@ -1,5 +1,5 @@
 import { createStyles } from '@mantine/core'
-import React, { FunctionComponent, HTMLProps } from 'react'
+import React, { FunctionComponent } from 'react'
 import { PlayerPlay, PlayerPause } from 'tabler-icons-react'
 import { motion } from 'framer-motion'
 import { MediaItem } from '../../models/MediaItem';
@@ -13,7 +13,7 @@ const useStyles = createStyles(theme => ({
     }
 }));
 
-const PlayButton: FunctionComponent<HTMLProps<HTMLButtonElement> & MediaItem> = ({ id, title, interpreter, img, ...props }) => {
+const PlayButton: FunctionComponent<MediaItem> = ({ id, title, interpreter, img }) => {
     const dispatch = useAppDispatch();
     const { id: playingId, playing } = useAppSelector(selectPlaying);
     const { classes, cx } = useStyles();
@@ -29,7 +29,6 @@ const PlayButton: FunctionComponent<HTMLProps<HTMLButtonElement> & MediaItem> = 
     return (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1, transition: { duration: 0.3 } }}>
             <button
-                {...props}
                 className={
                     cx(
                         classes.wrapper,

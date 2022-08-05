@@ -39,7 +39,7 @@ const SplashItem: FunctionComponent<SplashItemProps> = ({ emitAvgColor, ...item 
         fac.getColorAsync(item.img).then(color => {
             setAvgColor(color.rgba);
         });
-    }, []);
+    });
 
     useEffect(() => {
         emitAvgColor(avgColor);

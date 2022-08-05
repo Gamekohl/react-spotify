@@ -29,7 +29,7 @@ const ArtistItem: FunctionComponent<AristItemProps> = (item) => {
             <div className='h-full'>
                 <div className='mb-4 relative'>
                     <div className={classes.imgWrapper}>
-                        <Image src={item.img} layout='fill' />
+                        <Image alt={item.name} src={item.img} layout='fill' />
                     </div>
                 </div>
                 <div className='min-h-[62px]'>

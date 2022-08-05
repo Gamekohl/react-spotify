@@ -4,6 +4,7 @@ import { useNowPlayingContext } from '../../contexts/useNowPlaying';
 import { ChevronDown, ChevronUp } from 'tabler-icons-react';
 import { useAppSelector } from '../../store/hooks';
 import { selectNowPlayingMedia } from '../../store/features/nowPlaying.slice';
+import Image from 'next/image';
 
 const useStyles = createStyles({
     wrapper: {
@@ -38,7 +39,7 @@ const NowPlayingCover: FunctionComponent<NowPlayingCoverProps> = (props) => {
                     <ChevronUp size={24} />
                 )}
             </div>
-            <img className="w-full h-full object-cover left-0 top-0 absolute" src={media.img} />
+            <Image alt="NowPlaying" className="w-full h-full object-cover left-0 top-0 absolute" priority src={media.img} layout='fill' />
         </div>
     )
 }

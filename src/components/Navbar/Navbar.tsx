@@ -88,7 +88,7 @@ const Navbar = () => {
                                 </path>
                             </svg>
                         ) : (
-                            <Image title="Spotify" width={27} height={27} className="invert h-full" src="/assets/logo_single.png" />
+                            <Image alt="Spotify" title="Spotify" width={27} height={27} className="invert h-full" src="/assets/logo_single.png" />
                         )}
                     </a>
                 </Link>

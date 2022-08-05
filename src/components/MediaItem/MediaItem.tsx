@@ -38,7 +38,7 @@ const MediaItem: FunctionComponent<MediaItemProps> = (item) => {
             <div className='h-full'>
                 <div className='mb-4 relative'>
                     <div className={classes.imgWrapper}>
-                        <Image className='rounded-md' src={item.img} layout='fill' />
+                        <Image alt={item.title} className='rounded-md' src={item.img} layout='fill' />
                     </div>
                     <motion.div
                         initial={{ opacity: 0, y: 5 }}
