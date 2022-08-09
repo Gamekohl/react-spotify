@@ -46,11 +46,11 @@ const MainLayout: FunctionComponent<{ children: ReactNode }> = ({ children }) =>
                         }}
                         opened={opened}
                         onClose={closeMenu}
-                        padding="xl"
-                        title="Navigation"
+                        padding="xs"
                         overlayOpacity={.55}
                         overlayBlur={2}
                     >
+                        <Navbar />
                     </Drawer>
                 )}
                 <ScrollArea>

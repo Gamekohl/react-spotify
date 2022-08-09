@@ -4,6 +4,8 @@ import { Button, createStyles } from '@mantine/core';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import ElasticTabs from '../../UI/ElasticTabs/ElasticTabs';
+import { useMediaQuery } from '@mantine/hooks';
+import { Breakpoint, maxWidth } from '../../../utils/breakpoints';
 
 const useStyles = createStyles((theme) => ({
     buttonRoot: {
@@ -37,11 +39,18 @@ const buttons = [
 
 const CollectionMenu = () => {
     const router = useRouter();
+    const sm = useMediaQuery(maxWidth(Breakpoint.sm));
     const { classes, cx } = useStyles();
 
     return (
-        <motion.div initial={{ opacity: 0, x: '-10px' }} animate={{ opacity: 1, x: 0 }} className="flex gap-2 justify-start items-center flex-grow">
-
+        <motion.div
+            initial={{ opacity: 0, x: !sm && '-10px' }}
+            animate={{ opacity: 1, x: 0 }}
+            className={cx(
+                { 'flex-wrap justify-center pb-4': sm },
+                'flex gap-2 justify-start items-center flex-grow'
+            )}
+        >
             <ElasticTabs
                 backdropStyle={{
                     backgroundColor: '#149a45'
@@ -55,6 +64,7 @@ const CollectionMenu = () => {
                                     classNames={{
                                         root: classes.buttonRoot
                                     }}
+                                    className={sm && router.pathname === item.link && classes.active}
                                     onMouseEnter={onHover}
                                     component="a"
                                     color='dark'

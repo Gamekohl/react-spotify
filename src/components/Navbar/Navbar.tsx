@@ -2,13 +2,17 @@ import { createStyles, Text, Tooltip } from '@mantine/core'
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { navbarItems } from '../../data/navbarItems';
 import NavbarItem from './NavbarItem';
 import { Download, ChevronsLeft, ChevronsRight } from 'tabler-icons-react';
 import { motion } from 'framer-motion';
 import { useNowPlayingContext } from '../../contexts/useNowPlaying';
 import NowPlayingCover from '../NowPlaying/NowPlayingCover';
+import { useMediaQuery } from '@mantine/hooks';
+import { Breakpoint, maxWidth } from '../../utils/breakpoints';
+import { useAppDispatch } from '../../store/hooks';
+import { toggleMenu } from '../../store/features/menu.slice';
 
 const useStlyes = createStyles((theme, { isCollapsed }: { isCollapsed: boolean }) => ({
     wrapper: {
@@ -34,9 +38,19 @@ const useStlyes = createStyles((theme, { isCollapsed }: { isCollapsed: boolean }
 
 const Navbar = () => {
     const router = useRouter();
+    const sm = useMediaQuery(maxWidth(Breakpoint.sm));
+    const dispatch = useAppDispatch();
     const [isCollapsed, setIsCollapsed] = useState(false);
     const { classes, cx } = useStlyes({ isCollapsed });
     const { isMinimized } = useNowPlayingContext();
+
+    useEffect(() => {
+        const closeMenuOnNavigate = () => dispatch(toggleMenu());
+
+        router.events.on('routeChangeStart', closeMenuOnNavigate);
+
+        return () => router.events.off('routeChangeStart', closeMenuOnNavigate);
+    }, []);
 
     const toggleNavbar = () => {
         setIsCollapsed(!isCollapsed);
@@ -102,22 +116,26 @@ const Navbar = () => {
                 </ul>
                 <hr className="bg-[#282828] min-h-[1px] h-[1px] mt-2 border-0" />
             </nav>
-            <div className={cx({ 'flex flex-col justify-center': isCollapsed }, 'mx-6 my-3')}>
-                {getItem({
-                    url: '',
-                    title: 'Install app',
-                    icon: <Download size={24} />
-                })}
-                {getItem({
-                    url: '',
-                    title: isCollapsed ? 'Expand' : 'Collapse',
-                    icon: isCollapsed ? <ChevronsRight size={24} /> : <ChevronsLeft size={24} />,
-                    onClick: toggleNavbar
-                })}
-            </div>
-            <motion.div className="overflow-hidden" variants={{ initial: { height: 'auto' }, minimize: { height: 0 } }} animate={!isMinimized ? 'initial' : 'minimize'}>
-                <NowPlayingCover key="bigNowPlaying" />
-            </motion.div>
+            {!sm && (
+                <>
+                    <div className={cx({ 'flex flex-col justify-center': isCollapsed }, 'mx-6 my-3')}>
+                        {getItem({
+                            url: '',
+                            title: 'Install app',
+                            icon: <Download size={24} />
+                        })}
+                        {getItem({
+                            url: '',
+                            title: isCollapsed ? 'Expand' : 'Collapse',
+                            icon: isCollapsed ? <ChevronsRight size={24} /> : <ChevronsLeft size={24} />,
+                            onClick: toggleNavbar
+                        })}
+                    </div>
+                    <motion.div className="overflow-hidden" variants={{ initial: { height: 'auto' }, minimize: { height: 0 } }} animate={!isMinimized ? 'initial' : 'minimize'}>
+                        <NowPlayingCover key="bigNowPlaying" />
+                    </motion.div>
+                </>
+            )}
         </div>
     )
 }
