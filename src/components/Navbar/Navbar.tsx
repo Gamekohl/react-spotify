@@ -12,7 +12,7 @@ import NowPlayingCover from '../NowPlaying/NowPlayingCover';
 import { useMediaQuery } from '@mantine/hooks';
 import { Breakpoint, maxWidth } from '../../utils/breakpoints';
 import { useAppDispatch } from '../../store/hooks';
-import { toggleMenu } from '../../store/features/menu.slice';
+import { closeMenu } from '../../store/features/menu.slice';
 
 const useStlyes = createStyles((theme, { isCollapsed }: { isCollapsed: boolean }) => ({
     wrapper: {
@@ -45,7 +45,7 @@ const Navbar = () => {
     const { isMinimized } = useNowPlayingContext();
 
     useEffect(() => {
-        const closeMenuOnNavigate = () => dispatch(toggleMenu());
+        const closeMenuOnNavigate = () => dispatch(closeMenu());
 
         router.events.on('routeChangeStart', closeMenuOnNavigate);
 
