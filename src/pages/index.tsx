@@ -39,16 +39,16 @@ const Home: NextPage = () => {
       <Head>
         <title>Spotify - Web Player</title>
         <meta property="og:title" title="Spotify - Web Player" key="title" />
-        <meta http-equiv="content-Type" content="text/html; utf-8" />
-        <meta http-equiv="Pragma" content="cache" />
+        <meta httpEquiv="content-Type" content="text/html; utf-8" />
+        <meta httpEquiv="Pragma" content="cache" />
         <meta name="robots" content="INDEX,FOLLOW" />
-        <meta http-equiv="content-Language" content="de" />
+        <meta httpEquiv="content-Language" content="de" />
         <meta name="description" content="Spotify Clone made with ReactJS, NextJS and Redux" />
         <meta name="keywords" content="spotify,clone,spotify clone, reactjs,react,redux,nextjs" />
         <meta name="author" content="Gamekohl" />
         <meta name="publisher" content="Gamekohl" />
         <meta name="copyright" content="Gamekohl" />
-        <meta http-equiv="Reply-to" content="" />
+        <meta httpEquiv="Reply-to" content="" />
         <meta name="expires" content="" />
         <meta name="revisit-after" content="15 days" />
       </Head>
