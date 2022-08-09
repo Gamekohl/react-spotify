@@ -8,7 +8,7 @@ Check it out and let me know your thoughts. If you like it make sure to give it 
 ## 🔭 Demo
 Use the link down below to check out the clone:
 
-[Demo](https://react-spotify-3xnuxyq5l-gamekohl.vercel.app/)
+[Demo](https://react-spotify-tau.vercel.app)
 
 
 ## 📖 Tech Stack
