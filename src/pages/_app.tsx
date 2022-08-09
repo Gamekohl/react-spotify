@@ -8,9 +8,16 @@ import { appTheme } from '../theming/theme';
 import { Provider } from 'react-redux';
 import { store } from '../store/store';
 import dynamic from 'next/dynamic';
+import { ComponentType, ReactNode } from 'react';
 const MainLayout = dynamic(() => import('../layouts/MainLayout'), {
   ssr: false
 });
+
+type ComponentWithPageLayout = AppProps & {
+  Component: AppProps['Component'] & {
+    PageLayout?: ComponentType<{ children: ReactNode }>
+  }
+}
 
 const appVariants: Variants = {
   initial: {
@@ -26,7 +33,7 @@ const appVariants: Variants = {
   }
 }
 
-const App = ({ Component, pageProps, router }: AppProps) => {
+const App = ({ Component, pageProps, router }: ComponentWithPageLayout) => {
   return (
     <Provider store={store}>
       <MantineProvider
@@ -42,7 +49,13 @@ const App = ({ Component, pageProps, router }: AppProps) => {
         <NowPlayingProvider>
           <MainLayout>
             <motion.div key={router.route} initial="initial" animate="animate" variants={appVariants}>
-              <Component {...pageProps} />
+              {Component.PageLayout ? (
+                <Component.PageLayout>
+                  <Component {...pageProps} />
+                </Component.PageLayout>
+              ) : (
+                <Component {...pageProps} />
+              )}
             </motion.div>
           </MainLayout>
         </NowPlayingProvider>
