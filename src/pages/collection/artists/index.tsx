@@ -10,6 +10,7 @@ const Artists: NextPage = () => {
         <>
             <Head>
                 <title>Spotify - Library</title>
+                <meta property="og:title" title="Spotify - Library" key="title" />
             </Head>
             <Section title='Artists'>
                 {artists.map((item, key) => (

@@ -1,5 +1,6 @@
 import { createStyles, Menu, Text } from '@mantine/core'
 import { useMediaQuery } from '@mantine/hooks';
+import Image from 'next/image';
 import { useState } from 'react';
 import { ChevronDown, ExternalLink } from 'tabler-icons-react';
 import { Breakpoint, maxWidth } from '../../utils/breakpoints';
@@ -43,8 +44,8 @@ const UserProfile = () => {
                             )
                         }
                     >
-                        <div>
-                            <img className="w-8 h-8 p-0.5 rounded-full" src="https://avatars.dicebear.com/api/jdenticon/xyz.svg" />
+                        <div className='flex justify-center items-center'>
+                            <Image alt='Profile Image' className="p-0.5 rounded-full" width={28} height={28} src="https://avatars.dicebear.com/api/jdenticon/xyz.svg" />
                         </div>
                         {!sm && (
                             <>

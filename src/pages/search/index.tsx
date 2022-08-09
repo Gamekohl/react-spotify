@@ -55,6 +55,7 @@ const Search: NextPage = () => {
         <>
             <Head>
                 <title>Spotify - Search</title>
+                <meta property="og:title" title="Spotify - Search" key="title" />
             </Head>
             <div>
                 <div className='grid gap-8'>
