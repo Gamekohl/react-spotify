@@ -39,7 +39,6 @@ const Home: NextPage = () => {
       <Head>
         <title>Spotify - Web Player</title>
         <meta property="og:title" title="Spotify - Web Player" key="title" />
-        <meta httpEquiv="Content-Security-Policy" content="script-src 'none'" />
         <meta httpEquiv="content-Type" content="text/html; utf-8" />
         <meta httpEquiv="Pragma" content="cache" />
         <meta name="robots" content="INDEX,FOLLOW" />
