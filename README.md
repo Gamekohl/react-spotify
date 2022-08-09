@@ -19,6 +19,10 @@ Use the link down below to check out the clone:
 - [Mantine](https://github.com/mantinedev/mantine)
     - Styling, Layout, Theme, Components
 
+## Chrome Lighthouse Report
+![Report Summary](https://user-images.githubusercontent.com/108492240/183624931-e7ac2ca1-b2bb-4727-b002-e57f8285f673.png)
+![Metrics](https://user-images.githubusercontent.com/108492240/183624967-53e9928e-2401-4141-b681-9ddf9cf2fe16.png)
+
 ## Deployment
 The deployment is done using Vercel.
 
